@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/blog_demo");
+mongoose.connect("mongodb://localhost:27017/blog_demo", { useNewUrlParser: true });
 
 // USER - email, name
 
