@@ -34,6 +34,13 @@ Post.create({
             console.log(err);
         } else {
             foundUser.posts.push(post);
+            foundUser.save(function(err, data){
+                if(err){
+                    console.log(err);
+                } else {
+                    console.log(data);
+                }
+            });
         }
     });
 });
