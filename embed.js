@@ -1,15 +1,6 @@
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/blog_demo", { useNewUrlParser: true });
 
-// USER - email, name
-
-var userSchema = new mongoose.Schema({
-    email: String,
-    name: String
-});
-
-var User = mongoose.model("User", userSchema);
-
 //POST - title, content
 
 var postSchema = new mongoose.Schema({
@@ -18,6 +9,18 @@ var postSchema = new mongoose.Schema({
 });
 
 var Post = mongoose.model("Post", postSchema);
+
+// USER - email, name
+
+var userSchema = new mongoose.Schema({
+    email: String,
+    name: String,
+    posts: [postSchema]
+});
+
+var User = mongoose.model("User", userSchema);
+
+
 
 
 
@@ -34,15 +37,15 @@ var Post = mongoose.model("Post", postSchema);
 //     }
 // });
 
-var newPost = new Post({
-    title: "Reflection on Apples",
-    content: "They are delicious"
-});
+// var newPost = new Post({
+//     title: "Reflection on Apples",
+//     content: "They are delicious"
+// });
 
-newPost.save(function(err, post){
-    if(err){
-        console.log(err);
-    } else {
-        console.log(post);
-    }
-})
+// newPost.save(function(err, post){
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(post);
+//     }
+// });
