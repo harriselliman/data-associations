@@ -26,10 +26,16 @@ var userSchema = new mongoose.Schema({
 var User = mongoose.model("User", userSchema);
 
 Post.create({
-    title: "How to cook the best burger",
-    content: "Go to in-n-out"
+    title: "How to cook the best burger pt.2",
+    content: "Go to in-n-out again"
 }, function(err, post){
-    console.log(post);
+    User.findOne({email: "bob@gmail.com"}, function(err, foundUser){
+        if(err){
+            console.log(err);
+        } else {
+            foundUser.posts.push(post);
+        }
+    });
 });
 
 // User.create({
