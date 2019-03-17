@@ -9,3 +9,12 @@ var userSchema = new mongoose.Schema({
 });
 
 var User = mongoose.model("User", userSchema);
+
+//POST - title, content
+
+var postSchema = new mongoose.Schema({
+    title: String,
+    content: String
+});
+
+var postModel = mongoose.model("Post", postSchema);
