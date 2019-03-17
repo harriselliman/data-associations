@@ -24,18 +24,23 @@ var User = mongoose.model("User", userSchema);
 
 
 
-// var newUser = new User({
-//     email: "charlie@brown.edu",
-//     name: "Charlie Brown"
-// });
+var newUser = new User({
+    email: "harrypotter@hogwarts.edu",
+    name: "Harry Potter"
+});
 
-// newUser.save(function(err, user){
-//     if(err){
-//         console.log(err);
-//     } else {
-//         console.log(user);
-//     }
-// });
+newUser.posts.push({
+    title: "How to kill voldemort",
+    content: "Zap him up with the powerful wand"
+});
+
+newUser.save(function(err, user){
+    if(err){
+        console.log(err);
+    } else {
+        console.log(user);
+    }
+});
 
 // var newPost = new Post({
 //     title: "Reflection on Apples",
