@@ -15,7 +15,12 @@ var Post = mongoose.model("Post", postSchema);
 var userSchema = new mongoose.Schema({
     email: String,
     name: String,
-    posts: [postSchema]
+    posts: [
+        {
+            type: mongoose.Schema.types.ObjectId,
+            ref: "Post"
+        }
+    ]
 });
 
 var User = mongoose.model("User", userSchema);
