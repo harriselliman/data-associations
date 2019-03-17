@@ -26,8 +26,8 @@ var userSchema = new mongoose.Schema({
 var User = mongoose.model("User", userSchema);
 
 Post.create({
-    title: "How to cook the best burger pt.2",
-    content: "Go to in-n-out again"
+    title: "How to cook the best burger pt.3",
+    content: "Go to in-n-out and get a double double"
 }, function(err, post){
     User.findOne({email: "bob@gmail.com"}, function(err, foundUser){
         if(err){
