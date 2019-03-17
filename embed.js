@@ -53,8 +53,18 @@ var User = mongoose.model("User", userSchema);
 
 User.findOne({name: "Harry Potter"}, function(err, user){
     if(err){
-        console.log(err);
+        // console.log(err);
     } else {
-        console.log(user);
+        user.posts.push({
+            title: "3 things I hate",
+            content: "Voldemort. Voldemort. Voldemort"
+        });
+        user.save(function(err, user){
+            if(err){
+                console.log(err);
+            } else {
+                console.log(user);
+            }
+        });
     }
 });
