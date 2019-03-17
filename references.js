@@ -1,6 +1,8 @@
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/blog_demo_2", { useNewUrlParser: true });
 
+var Post = require("./models/post");
+
 // USER - email, name
 
 var userSchema = new mongoose.Schema({
@@ -41,10 +43,10 @@ var User = mongoose.model("User", userSchema);
 //     name: "Bob Belcher"
 // });
 
-User.findOne({email: "bob@gmail.com"}).populate("posts").exec(function(err, user){
-    if(err){
-        console.log(err);
-    } else {
-        console.log(user);
-    }
-});
+// User.findOne({email: "bob@gmail.com"}).populate("posts").exec(function(err, user){
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(user);
+//     }
+// });
