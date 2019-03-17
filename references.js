@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/blog_demo_2", { useNewUrlParser: true });
 
 var Post = require("./models/post");
+var User = require("./models/user");
 
 
 
